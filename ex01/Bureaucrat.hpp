@@ -3,8 +3,9 @@
 #include <string>
 class Bureaucrat {
 private:
-	std::string const _name;
-	int _grade;
+  std::string const _name;
+  int _grade;
+
 public:
   Bureaucrat();
   Bureaucrat(std::string name, int garade);
@@ -15,8 +16,7 @@ public:
   int getGrade() const;
   void increment();
   void decrement();
-  class GradeTooHighException
-      : public std::exception {
+  class GradeTooHighException : public std::exception {
   public:
     const char *what() const throw();
   };
