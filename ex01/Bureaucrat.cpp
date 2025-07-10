@@ -27,6 +27,16 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name) {
   this->_grade = other._grade;
 }
 
+void Bureaucrat::signForm(Form &f) {
+  try {
+    f.beSigned(*this);
+    std::cout << this->getName() << " signed " << f.getName() << std::endl;
+  } catch (const std::exception &e) {
+    std::cout << this->getName() << " couldn’t sign " << f.getName() << " because "
+              << e.what() << std::endl;
+  }
+}
+
 std::string Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
