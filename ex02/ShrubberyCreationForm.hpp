@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <random>
 
 class ShrubberyCreationForm : public AForm {
 private:
@@ -16,5 +15,5 @@ public:
   ~ShrubberyCreationForm();
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
   ShrubberyCreationForm(const ShrubberyCreationForm &other);
-  void takeAction() const override;
+  void takeAction() const;
 };

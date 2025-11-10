@@ -1,9 +1,9 @@
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-    : AForm("RobotomyRequestForm", 72, 45), _target("no_name");
+    : AForm("RobotomyRequestForm", 72, 45), _target("no_name") {}
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    : AForm("RobotomyRequestForm", 72, 45), _target(target);
+    : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 RobotomyRequestForm::~RobotomyRequestForm() {}
 RobotomyRequestForm &
 RobotomyRequestForm::operator=(const RobotomyRequestForm &other) {
@@ -20,10 +20,14 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
 
 void RobotomyRequestForm::takeAction() const {
   std::cout << "*Bzzzzzz... Whirrrr...*" << std::endl;
+  srand(time(NULL));
   int r = rand() % 2;
   if (r == 1) {
-    std::cout << "Successed: " <<_target << " has been robotomized." << std::endl;
+    std::cout << "Successed: " << _target << " has been robotomized."
+              << std::endl;
   } else {
-    std::cout << "Failed: Robotomizing " << _target << "is failed." << std::endl;
+    std::cout << "Failed: Robotomizing " << _target << " is failed."
+              << std::endl;
   }
 }
+

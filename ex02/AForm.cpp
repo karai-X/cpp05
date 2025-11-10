@@ -44,18 +44,16 @@ int AForm::getGradeExecute() const { return _grade_for_execute; }
 
 bool AForm::getIsSigned() const { return _is_signed; }
 
-bool AForm::setIsSigned(bool tf) { _is_signed = tf }
+void AForm::setIsSigned(bool tf) { _is_signed = tf; }
 
 void AForm::execute(Bureaucrat const &executor) const {
-  if (_is_signed && executor.getGrade() >= _grade_for_execute) {
-    takeAction();
-  } else {
-    std::ostringstream oss;
-    oss << executor.getName()
-        << " could not take action because the form is not signed or "
-           "executor's grade is not enougn";
-    throw(oss.str());
+  if (!_is_signed) {
+    throw GradeTooLowException();
   }
+  if (executor.getGrade() < _grade_for_execute) {
+    throw NotSignedException();
+  }
+  takeAction();
 }
 
 const char *AForm::GradeTooLowException::what() const throw() {
@@ -64,4 +62,9 @@ const char *AForm::GradeTooLowException::what() const throw() {
 
 const char *AForm::GradeTooHighException::what() const throw() {
   return ("Grade is too high!");
+}
+
+const char *AForm::NotSignedException::what() const throw() {
+  return ("The executor could not signe because the excecutor's grade is not "
+          "enough.");
 }

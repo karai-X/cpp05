@@ -1,8 +1,8 @@
 #pragma once
 #include "Bureaucrat.hpp"
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 class Bureaucrat;
 class AForm {
@@ -23,7 +23,7 @@ public:
   int getGradeSign() const;
   int getGradeExecute() const;
   bool getIsSigned() const;
-  bool setIsSigned(bool tf);
+  void setIsSigned(bool tf);
   void execute(Bureaucrat const &executor) const;
   virtual void takeAction() const = 0;
 
@@ -31,7 +31,13 @@ public:
   public:
     const char *what() const throw();
   };
+
   class GradeTooLowException : public std::exception {
+  public:
+    const char *what() const throw();
+  };
+
+  class NotSignedException : public std::exception {
   public:
     const char *what() const throw();
   };

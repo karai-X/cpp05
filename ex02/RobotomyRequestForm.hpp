@@ -1,6 +1,7 @@
 #pragma once
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -14,5 +15,5 @@ public:
   ~RobotomyRequestForm();
   RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
   RobotomyRequestForm(const RobotomyRequestForm &other);
-  void takeAction() const override;
+  void takeAction() const;
 };
