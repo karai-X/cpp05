@@ -41,7 +41,14 @@ std::string Bureaucrat::getName() const { return _name; }
 
 int Bureaucrat::getGrade() const { return _grade; }
 
-void Bureaucrat::increment() {
+void Bureaucrat::increment(){
+	if (_grade == 1)
+		throw GradeTooHighException();
+	else
+		_grade -= 1;
+}
+
+void Bureaucrat::decrement(){
   if (_grade == 150)
     throw GradeTooLowException();
   else
@@ -56,13 +63,6 @@ void Bureaucrat::executeForm(AForm const &form) const {
   } catch (const std::exception &e) {
     std::cerr << e.what() << std::endl;
   }
-}
-
-void Bureaucrat::decrement() {
-  if (_grade == 1)
-    throw GradeTooHighException();
-  else
-    _grade -= 1;
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {

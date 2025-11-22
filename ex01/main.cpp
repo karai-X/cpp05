@@ -4,7 +4,7 @@
 
 int main() {
   std::cout << "=== No error ===" << std::endl;
-  Bureaucrat b1("A", 90);
+  Bureaucrat b1("A", 70);
   Form f1("f1", 80, 180);
   std::cout << b1 << std::endl;
   std::cout << f1 << std::endl;
@@ -16,7 +16,7 @@ int main() {
 
   std::cout << "\n== Bureaucrat Grade is lower than required grade for sign ==="
             << std::endl;
-  Bureaucrat b2("B", 90);
+  Bureaucrat b2("B", 110);
   Form f2("f2", 100, 180);
   std::cout << b2 << std::endl;
   std::cout << f2 << std::endl;

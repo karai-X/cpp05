@@ -26,7 +26,7 @@ int main() {
 
     std::cout << "\n=== Test for increment ===" << std::endl;
     try {
-        Bureaucrat a("D", 149);
+        Bureaucrat a("D", 2);
         a.increment();
 		std::cout << a << std::endl;
 		a.increment();
@@ -37,7 +37,7 @@ int main() {
 
     std::cout << "\n=== Test for decrement ===" << std::endl;
     try {
-      Bureaucrat a("E", 2);
+      Bureaucrat a("E", 149);
       a.decrement();
       std::cout << a << std::endl;
       a.decrement();

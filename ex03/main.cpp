@@ -11,8 +11,8 @@ int main() {
     std::cout << "=== Make RobotomyRequestForm ===" << std::endl;
     Intern i;
     AForm *r = i.makeForm("RobotomyRequestForm", "form1");
-    // sign=72, exec=42
-    Bureaucrat b("b1", 150);
+    // sign=72, exec=45
+    Bureaucrat b("b1", 1);
     b.signForm(*r);
     std::cout << b << std::endl;
     std::cout << *r << std::endl;
